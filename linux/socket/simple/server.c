@@ -117,7 +117,7 @@ void communicate_process(int index){
 			if(recvMsg.op == USER){
 				printf("user %s login from ip:%s, port:%d\n", recvMsg.username, inet_ntoa(ent[index].client.sin_addr), ntohs(ent[index].client.sin_port));
 				bcopy(recvMsg.username, ent[index].username, strlen(recvMsg.username));
-				recvMsg.op = USER;
+				sendMsg.op = USER;
 			}
 			else if(recvMsg.op == EXIT){
 				printf("user %s is logout\n", recvMsg.username);
