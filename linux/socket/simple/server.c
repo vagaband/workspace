@@ -79,7 +79,7 @@ int main(){
 			printf("connetfd:%d\n", connetfd);
 			ent[index].client = client;
 			ent[index].sockfd = connetfd;
-			ent[index].stat = -1;
+			ent[index].stat = 1;
 			arg = malloc(sizeof(int));
 			*arg = index;
 			pthread_create(&tid, NULL, func, (void*)arg);
@@ -121,7 +121,7 @@ void communicate_process(int index){
 			}
 			else if(recvMsg.op == EXIT){
 				printf("user %s is logout\n", recvMsg.username);
-				sendMsg.op == EXIT;
+				sendMsg.op = EXIT;
 				ent[index].stat = 0;
 				int i;
 				for(i = 0; i < 5; i++){
@@ -132,7 +132,7 @@ void communicate_process(int index){
 				break;
 			}
 			else if(recvMsg.op == MSG){
-				sendMsg.op == MSG;
+				sendMsg.op = MSG;
 			}
 			bcopy(recvMsg.username, sendMsg.username,strlen(recvMsg.username));
 			bcopy(recvMsg.buf, sendMsg.buf, strlen(recvMsg.buf));

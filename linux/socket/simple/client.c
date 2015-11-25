@@ -55,7 +55,8 @@ int main(){
 		send(sockfd, &clientMsgSend, sizeof(clientMsgSend), 0);
 		while(1){
 			clientMsgSend.op = MSG;
-			scanf("%s", clientMsgSend.buf);
+			//scanf("%s", clientMsgSend.buf);
+			gets(clientMsgSend.buf);
 			if(strcmp("bye", clientMsgSend.buf) == 0){
 				clientMsgSend.op = EXIT;
 				send(sockfd, &clientMsgSend, sizeof(clientMsgSend), 0);

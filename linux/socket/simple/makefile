@@ -1,7 +1,7 @@
 main:server.o client.o
-	gcc server.o -oserver -lpthread
-	gcc client.o -oclient -lpthread
+	gcc -g server.o -oserver -lpthread
+	gcc -g client.o -oclient -lpthread
 server.o:server.c clientmsg.h
-	gcc -c server.c
+	gcc -g -c server.c
 client.o:client.c clientmsg.h
-	gcc -c client.c
+	gcc -g -c client.c
