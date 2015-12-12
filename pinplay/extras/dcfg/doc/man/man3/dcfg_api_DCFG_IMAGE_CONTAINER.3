@@ -1,0 +1,68 @@
+.TH "dcfg_api::DCFG_IMAGE_CONTAINER" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_api::DCFG_IMAGE_CONTAINER \- 
+.PP
+Common interface to any structure containing images, i\&.e\&., processes\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_api\&.H>\fP
+.PP
+Inherits \fBdcfg_api::DCFG_ROUTINE_CONTAINER\fP\&.
+.PP
+Inherited by \fBdcfg_api::DCFG_PROCESS\fP\fC [virtual]\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual UINT32 \fBget_image_ids\fP (\fBDCFG_ID_CONTAINER\fP &image_ids) const =0"
+.br
+.RI "\fIGet the set of image IDs\&. \fP"
+.ti -1c
+.RI "virtual \fBDCFG_IMAGE_CPTR\fP \fBget_image_info\fP (DCFG_ID image_id) const =0"
+.br
+.RI "\fIGet access to data for an image\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Common interface to any structure containing images, i\&.e\&., processes\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual UINT32 dcfg_api::DCFG_IMAGE_CONTAINER::get_image_ids (\fBDCFG_ID_CONTAINER\fP &image_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get the set of image IDs\&. Get IDs of all images seen, not just the ones that are active at any given time\&. The address ranges of two or more of the the images may overlap if an image was loaded after another was unloaded\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCimage_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimage_ids\fP Container to which image IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual \fBDCFG_IMAGE_CPTR\fP dcfg_api::DCFG_IMAGE_CONTAINER::get_image_info (DCFG_IDimage_id) const\fC [pure virtual]\fP"
+
+.PP
+Get access to data for an image\&. \fBReturns:\fP
+.RS 4
+Pointer to interface object for specified image or \fCNULL\fP if \fCimage_id\fP is invalid\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimage_id\fP ID of desired image\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

@@ -1,0 +1,98 @@
+.TH "dcfg_trace_api::DCFG_TRACE_READER" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_trace_api::DCFG_TRACE_READER \- 
+.PP
+Interface to all data in a DCFG edge trace\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_trace_api\&.H>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBopen\fP (const std::string filename, UINT32 tid, std::string &errMsg)=0"
+.br
+.RI "\fIOpen a file for reading from the given thread\&. \fP"
+.ti -1c
+.RI "virtual bool \fBget_edge_ids\fP (\fBdcfg_api::DCFG_ID_CONTAINER\fP &edge_ids, bool &done, std::string &errMsg)=0"
+.br
+.RI "\fIRead a chunk of edge IDs\&. \fP"
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBDCFG_TRACE_READER\fP * \fBnew_reader\fP (dcfg_api::DCFG_ID process_id)"
+.br
+.RI "\fICreate a new DCFG edge-trace reader\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface to all data in a DCFG edge trace\&. 
+
+This is an interface; use DCFG_TRACE::new_trace() to create an object that implements the interface\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool dcfg_trace_api::DCFG_TRACE_READER::get_edge_ids (\fBdcfg_api::DCFG_ID_CONTAINER\fP &edge_ids, bool &done, std::string &errMsg)\fC [pure virtual]\fP"
+
+.PP
+Read a chunk of edge IDs\&. They will be added to \fCedge_ids\fP in the order in which they were recorded\&. This method will not typically read all the values at once\&. Call it repeatedly until \fCdone\fP is set to \fCtrue\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+\fCtrue\fP on success, \fCfalse\fP otherwise (and sets \fCerrMsg\fP)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIedge_ids\fP Container to which edge IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of DCFG_ID_CONTAINER that maintains insertion order: DCFG_ID_VECTOR, etc\&. 
+.br
+\fIdone\fP Set to \fCtrue\fP when end of sequence has been reached, \fCfalse\fP if there are more to read\&. 
+.br
+\fIerrMsg\fP Contains error message upon failure\&. 
+.RE
+.PP
+
+.SS "static \fBDCFG_TRACE_READER\fP* dcfg_trace_api::DCFG_TRACE_READER::new_reader (dcfg_api::DCFG_IDprocess_id)\fC [static]\fP"
+
+.PP
+Create a new DCFG edge-trace reader\&. This is a factory method to create a new object that implements the \fBDCFG_TRACE_READER\fP interface\&. A reader can access only one process\&. Create multiple readers to read multiple processes\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Pointer to new object\&. It can be freed with \fCdelete\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess_id\fP ID of process to read\&. This can be determined from the DCFG data object corresponding to the trace\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_trace_api::DCFG_TRACE_READER::open (const std::stringfilename, UINT32tid, std::string &errMsg)\fC [pure virtual]\fP"
+
+.PP
+Open a file for reading from the given thread\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP on success, \fCfalse\fP otherwise (and sets \fCerrMsg\fP)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP Name of file to open, which must follow the DCFG-Trace JSON format\&. 
+.br
+\fItid\fP ID number of thread to read\&. 
+.br
+\fIerrMsg\fP Contains error message upon failure\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

@@ -1,0 +1,115 @@
+.TH "dcfg_api::DCFG_IMAGE" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_api::DCFG_IMAGE \- 
+.PP
+Interface to information about a binary image within a process\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_api\&.H>\fP
+.PP
+Inherits \fBdcfg_api::DCFG_ROUTINE_CONTAINER\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual DCFG_ID \fBget_process_id\fP () const =0"
+.br
+.RI "\fIGet the process ID\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_image_id\fP () const =0"
+.br
+.RI "\fIGet the image ID\&. \fP"
+.ti -1c
+.RI "virtual const std::string * \fBget_filename\fP () const =0"
+.br
+.RI "\fIGet the filename of the image\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_base_address\fP () const =0"
+.br
+.RI "\fIGet base address of image\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_size\fP () const =0"
+.br
+.RI "\fIGet size of image\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_basic_block_ids_by_addr\fP (UINT64 addr, \fBDCFG_ID_CONTAINER\fP &node_ids) const =0"
+.br
+.RI "\fIGet basic block ID(s) containing given address in this image\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface to information about a binary image within a process\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual UINT64 dcfg_api::DCFG_IMAGE::get_base_address () const\fC [pure virtual]\fP"
+
+.PP
+Get base address of image\&. \fBReturns:\fP
+.RS 4
+Address where image was loaded into memory by O/S\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_IMAGE::get_basic_block_ids_by_addr (UINT64addr, \fBDCFG_ID_CONTAINER\fP &node_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get basic block ID(s) containing given address in this image\&. It is possible to get zero or more IDs returned: zero if the address appears in no basic blocks, one if it appears in exactly one block in one image, and more than one if it is not unique\&. Basic blocks may not be unique if an image uses self-modifying code (SMC) or other mechanisms that replace code regions\&. For most images, this will not be the case, and addresses will be unique for a given image\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCnode_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaddr\fP Virtual address that can appear anywhere within a basic block\&. 
+.br
+\fInode_ids\fP Container to which basic-block IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual const std::string* dcfg_api::DCFG_IMAGE::get_filename () const\fC [pure virtual]\fP"
+
+.PP
+Get the filename of the image\&. \fBReturns:\fP
+.RS 4
+Pointer to string containing full pathname of image or base name if pathname not available or NULL if no name is available\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_IMAGE::get_image_id () const\fC [pure virtual]\fP"
+
+.PP
+Get the image ID\&. \fBReturns:\fP
+.RS 4
+ID of this image\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_IMAGE::get_process_id () const\fC [pure virtual]\fP"
+
+.PP
+Get the process ID\&. \fBReturns:\fP
+.RS 4
+Process ID of this image\&. 
+.RE
+.PP
+
+.SS "virtual UINT64 dcfg_api::DCFG_IMAGE::get_size () const\fC [pure virtual]\fP"
+
+.PP
+Get size of image\&. \fBReturns:\fP
+.RS 4
+Size of image as loaded into memory by O/S, in bytes\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

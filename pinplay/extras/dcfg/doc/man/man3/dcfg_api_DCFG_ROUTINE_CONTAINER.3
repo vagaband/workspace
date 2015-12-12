@@ -1,0 +1,68 @@
+.TH "dcfg_api::DCFG_ROUTINE_CONTAINER" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_api::DCFG_ROUTINE_CONTAINER \- 
+.PP
+Common interface to any structure containing routines, i\&.e\&., images and processes\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_api\&.H>\fP
+.PP
+Inherits \fBdcfg_api::DCFG_LOOP_CONTAINER\fP\&.
+.PP
+Inherited by \fBdcfg_api::DCFG_IMAGE\fP\fC [virtual]\fP, and \fBdcfg_api::DCFG_IMAGE_CONTAINER\fP\fC [virtual]\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual UINT32 \fBget_routine_ids\fP (\fBDCFG_ID_CONTAINER\fP &node_ids) const =0"
+.br
+.RI "\fIGet the set of routine IDs\&. \fP"
+.ti -1c
+.RI "virtual \fBDCFG_ROUTINE_CPTR\fP \fBget_routine_info\fP (DCFG_ID routine_id) const =0"
+.br
+.RI "\fIGet access to data for a routine\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Common interface to any structure containing routines, i\&.e\&., images and processes\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual UINT32 dcfg_api::DCFG_ROUTINE_CONTAINER::get_routine_ids (\fBDCFG_ID_CONTAINER\fP &node_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get the set of routine IDs\&. Get IDs of all routines in the structure\&. A routine ID is the same as the ID of the basic block at its entry node\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCnode_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode_ids\fP Container to which IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual \fBDCFG_ROUTINE_CPTR\fP dcfg_api::DCFG_ROUTINE_CONTAINER::get_routine_info (DCFG_IDroutine_id) const\fC [pure virtual]\fP"
+
+.PP
+Get access to data for a routine\&. \fBReturns:\fP
+.RS 4
+Pointer to interface object for specified routine or \fCNULL\fP if \fCroutine_id\fP is invalid\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIroutine_id\fP ID of desired routine\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

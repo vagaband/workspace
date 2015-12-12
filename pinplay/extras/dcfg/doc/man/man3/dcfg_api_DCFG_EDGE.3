@@ -1,0 +1,522 @@
+.TH "dcfg_api::DCFG_EDGE" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_api::DCFG_EDGE \- 
+.PP
+Interface to information about an edge between basic blocks and/or special nodes\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_api\&.H>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual DCFG_ID \fBget_edge_id\fP () const =0"
+.br
+.RI "\fIGet ID number of edge\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_source_node_id\fP () const =0"
+.br
+.RI "\fIGet node ID of edge source\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_target_node_id\fP () const =0"
+.br
+.RI "\fIGet node ID of edge target\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_exec_count\fP () const =0"
+.br
+.RI "\fIGet edge count\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_exec_count_for_thread\fP (UINT32 thread_id) const =0"
+.br
+.RI "\fIGet edge count per thread\&. \fP"
+.ti -1c
+.RI "virtual const std::string * \fBget_edge_type\fP () const =0"
+.br
+.RI "\fIGet edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_any_branch_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is \fIany\fP type of branch\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_any_call_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is \fIany\fP type of call\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_any_return_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is \fIany\fP type of return\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_any_inter_routine_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is \fIany\fP type of call or return \fIor\fP an edge from the start node or to the exit node\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_any_bypass_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is \fIany\fP type of bypass, which is a 'fabricated' edge across call/return pairs, etc\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_branch_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a branch edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_call_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a call edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_return_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a return edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_call_bypass_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a call bypass edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_conditional_branch_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a conditional branch edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_context_bypass_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a context bypass edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_context_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a context edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_context_return_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a context return edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_direct_branch_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a direct branch edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_direct_call_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a direct call edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_direct_conditional_branch_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a direct conditional branch edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_direct_unconditional_branch_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a direct unconditional branch edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_entry_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is an entry edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_excluded_bypass_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is an excluded bypass edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_exit_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is an exit edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_fall_thru_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a fall thru edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_indirect_branch_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is an indirect branch edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_indirect_call_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is an indirect call edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_indirect_conditional_branch_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is an indirect conditional branch edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_indirect_unconditional_branch_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is an indirect unconditional branch edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_rep_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a rep-prefix edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_sys_call_bypass_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a system call bypass edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_sys_call_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a system call edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_sys_return_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is a system return edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_unconditional_branch_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is an unconditional branch edge type\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_unknown_edge_type\fP () const =0"
+.br
+.RI "\fIDetermine whether this edge is an unknown edge type\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface to information about an edge between basic blocks and/or special nodes\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual DCFG_ID dcfg_api::DCFG_EDGE::get_edge_id () const\fC [pure virtual]\fP"
+
+.PP
+Get ID number of edge\&. \fBReturns:\fP
+.RS 4
+ID number for this edge, unique within a process\&. 
+.RE
+.PP
+
+.SS "virtual const std::string* dcfg_api::DCFG_EDGE::get_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Get edge type\&. \fBReturns:\fP
+.RS 4
+Pointer to string describing edge type per DCFG format documentation or NULL if type data is internally inconsistent (should not happen)\&. 
+.RE
+.PP
+
+.SS "virtual UINT64 dcfg_api::DCFG_EDGE::get_exec_count () const\fC [pure virtual]\fP"
+
+.PP
+Get edge count\&. \fBReturns:\fP
+.RS 4
+Number of times edge was taken, summed across all threads\&. 
+.RE
+.PP
+
+.SS "virtual UINT64 dcfg_api::DCFG_EDGE::get_exec_count_for_thread (UINT32thread_id) const\fC [pure virtual]\fP"
+
+.PP
+Get edge count per thread\&. \fBReturns:\fP
+.RS 4
+Number of times edge was taken on given thread\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIthread_id\fP Thread number\&. Typically, threads are consecutively numbered from zero to \fBDCFG_PROCESS::get_highest_thread_id()\fP\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_EDGE::get_source_node_id () const\fC [pure virtual]\fP"
+
+.PP
+Get node ID of edge source\&. This is the node node the edge is 'coming from'\&. Most node IDs correspond to basic-blocks, but they could also be for special nodes\&. In particular, a source node ID could be the 'START' node\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ID of source node\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_EDGE::get_target_node_id () const\fC [pure virtual]\fP"
+
+.PP
+Get node ID of edge target\&. This is the node node the edge is 'going to'\&. Most node IDs correspond to basic-blocks, but they could also be for special nodes\&. In particular, a source node ID could be the 'START' node\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ID of target node\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_any_branch_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is \fIany\fP type of branch\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if branch, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_any_bypass_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is \fIany\fP type of bypass, which is a 'fabricated' edge across call/return pairs, etc\&. See the DCFG documentation for more information on bypasses\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+\fCtrue\fP if bypass, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_any_call_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is \fIany\fP type of call\&. This includes routine calls, system calls, etc\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+\fCtrue\fP if call, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_any_inter_routine_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is \fIany\fP type of call or return \fIor\fP an edge from the start node or to the exit node\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if inter-routine, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_any_return_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is \fIany\fP type of return\&. This includes routine returns, system returns, etc\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+\fCtrue\fP if return, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_branch_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a branch edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if branch edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_call_bypass_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a call bypass edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if call bypass edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_call_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a call edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if call edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_conditional_branch_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a conditional branch edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if conditional branch edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_context_bypass_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a context bypass edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if context bypass edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_context_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a context edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if context edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_context_return_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a context return edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if context return edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_direct_branch_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a direct branch edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if direct branch edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_direct_call_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a direct call edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if direct call edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_direct_conditional_branch_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a direct conditional branch edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if direct conditional branch edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_direct_unconditional_branch_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a direct unconditional branch edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if direct unconditional branch edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_entry_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is an entry edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if entry edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_excluded_bypass_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is an excluded bypass edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if excluded bypass edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_exit_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is an exit edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if exit edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_fall_thru_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a fall thru edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if fall thru edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_indirect_branch_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is an indirect branch edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if indirect branch edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_indirect_call_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is an indirect call edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if indirect call edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_indirect_conditional_branch_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is an indirect conditional branch edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if indirect conditional branch edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_indirect_unconditional_branch_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is an indirect unconditional branch edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if indirect unconditional branch edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_rep_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a rep-prefix edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if rep edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_return_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a return edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if return edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_sys_call_bypass_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a system call bypass edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if sys call bypass edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_sys_call_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a system call edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if sys call edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_sys_return_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is a system return edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if sys return edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_unconditional_branch_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is an unconditional branch edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if unconditional branch edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_EDGE::is_unknown_edge_type () const\fC [pure virtual]\fP"
+
+.PP
+Determine whether this edge is an unknown edge type\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if unknown edge, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

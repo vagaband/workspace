@@ -1,0 +1,139 @@
+.TH "dcfg_api::DCFG_GRAPH_BASE" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_api::DCFG_GRAPH_BASE \- 
+.PP
+Common interface to any structure containing nodes and edges between them, i\&.e\&., processes, images, routines, loops and basic blocks\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_api\&.H>\fP
+.PP
+Inherited by \fBdcfg_api::DCFG_BASIC_BLOCK\fP\fC [virtual]\fP, \fBdcfg_api::DCFG_LOOP\fP\fC [virtual]\fP, and \fBdcfg_api::DCFG_LOOP_CONTAINER\fP\fC [virtual]\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual UINT32 \fBget_basic_block_ids\fP (\fBDCFG_ID_CONTAINER\fP &node_ids) const =0"
+.br
+.RI "\fIGet IDs of all basic blocks in the structure\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_internal_edge_ids\fP (\fBDCFG_ID_CONTAINER\fP &edge_ids) const =0"
+.br
+.RI "\fIGet list of internal edge IDs\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_inbound_edge_ids\fP (\fBDCFG_ID_CONTAINER\fP &edge_ids) const =0"
+.br
+.RI "\fIGet list of in-bound edge IDs\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_outbound_edge_ids\fP (\fBDCFG_ID_CONTAINER\fP &edge_ids) const =0"
+.br
+.RI "\fIGet list of out-bound edge IDs\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_instr_count\fP () const =0"
+.br
+.RI "\fIGet the total dynamic instruction count\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_instr_count_for_thread\fP (UINT32 thread_id) const =0"
+.br
+.RI "\fIGet per-thread dynamic instruction count\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Common interface to any structure containing nodes and edges between them, i\&.e\&., processes, images, routines, loops and basic blocks\&. 
+
+A single basic block is a special case consisting of one block and no internal edges\&. Most nodes correspond to basic blocks of the executed binary, but some nodes are 'special'\&. See the DCFG documentation for more information\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual UINT32 dcfg_api::DCFG_GRAPH_BASE::get_basic_block_ids (\fBDCFG_ID_CONTAINER\fP &node_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get IDs of all basic blocks in the structure\&. \fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCnode_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode_ids\fP Container to which IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_GRAPH_BASE::get_inbound_edge_ids (\fBDCFG_ID_CONTAINER\fP &edge_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get list of in-bound edge IDs\&. These are all edges such that the source node \fIis not\fP within the structure and the target node \fIis\fP within the structure\&. Note that this set contains \fIall\fP the edges that terminate within the structure, including returns from calls, interrupts, etc\&., not only those that are considered to 'enter' the structure\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCedge_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIedge_ids\fP Container to which IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual UINT64 dcfg_api::DCFG_GRAPH_BASE::get_instr_count () const\fC [pure virtual]\fP"
+
+.PP
+Get the total dynamic instruction count\&. \fBReturns:\fP
+.RS 4
+Count of instructions executed in this structure across all threads\&. 
+.RE
+.PP
+
+.SS "virtual UINT64 dcfg_api::DCFG_GRAPH_BASE::get_instr_count_for_thread (UINT32thread_id) const\fC [pure virtual]\fP"
+
+.PP
+Get per-thread dynamic instruction count\&. \fBReturns:\fP
+.RS 4
+Count of instructions executed in this structure on specified thread or zero (0) if thread is invalid\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIthread_id\fP Thread number\&. Typically, threads are consecutively numbered from zero to \fBDCFG_PROCESS::get_highest_thread_id()\fP\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_GRAPH_BASE::get_internal_edge_ids (\fBDCFG_ID_CONTAINER\fP &edge_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get list of internal edge IDs\&. These are all edges such that both the source and target nodes are within the structure\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCedge_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIedge_ids\fP Container to which IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_GRAPH_BASE::get_outbound_edge_ids (\fBDCFG_ID_CONTAINER\fP &edge_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get list of out-bound edge IDs\&. These are all edges such that the source node \fIis\fP within the structure and the target node \fIis not\fP within the structure\&. Note that this set contains \fIall\fP the edges that originate within the structure, including calls, interrupts, etc\&., not only those that are considered to 'exit' the structure\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCedge_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIedge_ids\fP Container to which edge IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

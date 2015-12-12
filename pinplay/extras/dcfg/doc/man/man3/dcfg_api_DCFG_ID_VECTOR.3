@@ -1,0 +1,41 @@
+.TH "dcfg_api::DCFG_ID_VECTOR" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_api::DCFG_ID_VECTOR \- 
+.PP
+Vector of ID numbers\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_api\&.H>\fP
+.PP
+Inherits std::vector< T >, and \fBdcfg_api::DCFG_ID_CONTAINER\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBadd_id\fP (DCFG_ID id)"
+.br
+.RI "\fIAdd one ID to the container\&. \fP"
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Vector of ID numbers\&. 
+
+This is an example of a \fBDCFG_ID_CONTAINER\fP implementation based on an STL \fCvector\fP\&. This is useful when it is important to maintain the order in which elements are added\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void dcfg_api::DCFG_ID_VECTOR::add_id (DCFG_IDid)\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Add one ID to the container\&. All concrete implementations must define this method\&. 
+.PP
+Implements \fBdcfg_api::DCFG_ID_CONTAINER\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

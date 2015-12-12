@@ -1,0 +1,162 @@
+.TH "dcfg_api::DCFG_DATA" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_api::DCFG_DATA \- 
+.PP
+Interface to all data in a DCFG\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_api\&.H>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBread\fP (std::istream &strm, std::string &errMsg, bool readToEof=true)=0"
+.br
+.RI "\fISet internal DCFG data from a C++ \fCistream\fP\&. \fP"
+.ti -1c
+.RI "virtual bool \fBread\fP (const std::string filename, std::string &errMsg)=0"
+.br
+.RI "\fIOpen a file for reading and set internal DCFG data from its contents\&. \fP"
+.ti -1c
+.RI "virtual void \fBwrite\fP (std::ostream &strm) const =0"
+.br
+.RI "\fIWrite internal DCFG data to a C++ \fCostream\fP\&. \fP"
+.ti -1c
+.RI "virtual bool \fBwrite\fP (const std::string &filename, std::string &errMsg) const =0"
+.br
+.RI "\fIWrite internal DCFG data to a file\&. \fP"
+.ti -1c
+.RI "virtual void \fBclearCounts\fP ()=0"
+.br
+.RI "\fISet all dynamic counts to zero\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_process_ids\fP (\fBDCFG_ID_CONTAINER\fP &process_ids) const =0"
+.br
+.RI "\fIGet list of process IDs\&. \fP"
+.ti -1c
+.RI "virtual \fBDCFG_PROCESS_CPTR\fP \fBget_process_info\fP (DCFG_ID process_id) const =0"
+.br
+.RI "\fIGet access to data for a process\&. \fP"
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBDCFG_DATA\fP * \fBnew_dcfg\fP ()"
+.br
+.RI "\fICreate a new DCFG\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface to all data in a DCFG\&. 
+
+This is an interface; use \fBDCFG_DATA::new_dcfg()\fP to create an object that implements the interface\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual UINT32 dcfg_api::DCFG_DATA::get_process_ids (\fBDCFG_ID_CONTAINER\fP &process_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get list of process IDs\&. \fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCprocess_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess_ids\fP Container to which process IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual \fBDCFG_PROCESS_CPTR\fP dcfg_api::DCFG_DATA::get_process_info (DCFG_IDprocess_id) const\fC [pure virtual]\fP"
+
+.PP
+Get access to data for a process\&. \fBReturns:\fP
+.RS 4
+Pointer to interface object for specified process or \fCNULL\fP if \fCprocess_id\fP is invalid\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprocess_id\fP ID of desired process\&. 
+.RE
+.PP
+
+.SS "static \fBDCFG_DATA\fP* dcfg_api::DCFG_DATA::new_dcfg ()\fC [static]\fP"
+
+.PP
+Create a new DCFG\&. This is a factory method to create a new object that implements the \fBDCFG_DATA\fP interface\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Pointer to new object\&. It can be freed with \fCdelete\fP\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_DATA::read (std::istream &strm, std::string &errMsg, boolreadToEof = \fCtrue\fP)\fC [pure virtual]\fP"
+
+.PP
+Set internal DCFG data from a C++ \fCistream\fP\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP on success, \fCfalse\fP otherwise (and sets \fCerrMsg\fP)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstrm\fP Stream to read from\&. Reads one JSON value, which must follow the DCFG JSON format\&. 
+.br
+\fIerrMsg\fP Contains error message upon failure\&. 
+.br
+\fIreadToEof\fP Defines what to do after the JSON value is read\&. If \fCtrue\fP, continue reading to end of input stream and fail if any non-whitespace characters are found\&. If \fCfalse\fP, stop reading after the the JSON value\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_DATA::read (const std::stringfilename, std::string &errMsg)\fC [pure virtual]\fP"
+
+.PP
+Open a file for reading and set internal DCFG data from its contents\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP on success, \fCfalse\fP otherwise (and sets \fCerrMsg\fP)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP Name of file to open\&. Reads one JSON value, which must follow the DCFG JSON format\&. 
+.br
+\fIerrMsg\fP Contains error message upon failure\&. 
+.RE
+.PP
+
+.SS "virtual void dcfg_api::DCFG_DATA::write (std::ostream &strm) const\fC [pure virtual]\fP"
+
+.PP
+Write internal DCFG data to a C++ \fCostream\fP\&. \fBParameters:\fP
+.RS 4
+\fIstrm\fP Stream to write to\&. Output will conform to the DCFG JSON format\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_DATA::write (const std::string &filename, std::string &errMsg) const\fC [pure virtual]\fP"
+
+.PP
+Write internal DCFG data to a file\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP on success, \fCfalse\fP otherwise (and sets \fCerrMsg\fP)\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP Name of file to open\&. Output will conform to the DCFG JSON format\&. 
+.br
+\fIerrMsg\fP Contains error message upon failure\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

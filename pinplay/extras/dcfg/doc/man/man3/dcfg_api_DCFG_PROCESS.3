@@ -1,0 +1,299 @@
+.TH "dcfg_api::DCFG_PROCESS" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_api::DCFG_PROCESS \- 
+.PP
+Interface to information about an O/S process\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_api\&.H>\fP
+.PP
+Inherits \fBdcfg_api::DCFG_IMAGE_CONTAINER\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual DCFG_ID \fBget_process_id\fP () const =0"
+.br
+.RI "\fIGet the process ID\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_highest_thread_id\fP () const =0"
+.br
+.RI "\fIGet the highest thread ID\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_basic_block_ids_by_addr\fP (UINT64 addr, \fBDCFG_ID_CONTAINER\fP &node_ids) const =0"
+.br
+.RI "\fIGet basic block ID(s) containing given address in this process\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_start_node_id\fP () const =0"
+.br
+.RI "\fIGet ID of start node\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_end_node_id\fP () const =0"
+.br
+.RI "\fIGet ID of end node\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_unknown_node_id\fP () const =0"
+.br
+.RI "\fIGet ID of unknown node\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_edge_id\fP (DCFG_ID source_node_id, DCFG_ID target_node_id) const =0"
+.br
+.RI "\fIGet the ID of an edge given its source and target nodes\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_successor_node_ids\fP (DCFG_ID source_node_id, \fBDCFG_ID_CONTAINER\fP &node_ids) const =0"
+.br
+.RI "\fIGet the set of target nodes that have an edge from the given source\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_predecessor_node_ids\fP (DCFG_ID target_node_id, \fBDCFG_ID_CONTAINER\fP &node_ids) const =0"
+.br
+.RI "\fIGet the set of source nodes that have an edge to the given target\&. \fP"
+.ti -1c
+.RI "virtual \fBDCFG_EDGE_CPTR\fP \fBget_edge_info\fP (DCFG_ID edge_id) const =0"
+.br
+.RI "\fIGet access to data for an edge\&. \fP"
+.ti -1c
+.RI "virtual \fBDCFG_BASIC_BLOCK_CPTR\fP \fBget_basic_block_info\fP (DCFG_ID node_id) const =0"
+.br
+.RI "\fIGet access to data for a basic block\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_special_node\fP (DCFG_ID node_id) const =0"
+.br
+.RI "\fIDetermine whether a node ID refers to any 'special' (non-basic-block) node\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_start_node\fP (DCFG_ID node_id) const =0"
+.br
+.RI "\fIDetermine whether a node ID refers to the special non-basic-block start node\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_end_node\fP (DCFG_ID node_id) const =0"
+.br
+.RI "\fIDetermine whether a node ID refers to the special non-basic-block end node\&. \fP"
+.ti -1c
+.RI "virtual bool \fBis_unknown_node\fP (DCFG_ID node_id) const =0"
+.br
+.RI "\fIDetermine whether a node ID refers to the special non-basic-block 'unknown' node\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface to information about an O/S process\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual UINT32 dcfg_api::DCFG_PROCESS::get_basic_block_ids_by_addr (UINT64addr, \fBDCFG_ID_CONTAINER\fP &node_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get basic block ID(s) containing given address in this process\&. It is possible to get zero or more IDs returned: zero if the address appears in no basic blocks, one if it appears in exactly one block in one image, and more than one if it is not unique\&. Basic blocks may not be unique if a dynamically-linked process unloads one image and loads another image in an overlapping address region\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCnode_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaddr\fP Virtual address that can appear anywhere within a basic block\&. 
+.br
+\fInode_ids\fP Container to which basic-block IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual \fBDCFG_BASIC_BLOCK_CPTR\fP dcfg_api::DCFG_PROCESS::get_basic_block_info (DCFG_IDnode_id) const\fC [pure virtual]\fP"
+
+.PP
+Get access to data for a basic block\&. \fBReturns:\fP
+.RS 4
+Pointer to interface object for specified basic block or \fCNULL\fP if \fCnode_id\fP refers to a 'special' node or is invalid\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode_id\fP ID of desired basic block\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_PROCESS::get_edge_id (DCFG_IDsource_node_id, DCFG_IDtarget_node_id) const\fC [pure virtual]\fP"
+
+.PP
+Get the ID of an edge given its source and target nodes\&. \fBReturns:\fP
+.RS 4
+ID number of edge or zero (0) if there is no edge between the two nodes\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsource_node_id\fP ID number of node the edge is coming from\&. 
+.br
+\fItarget_node_id\fP ID number of node the edge is going to\&. 
+.RE
+.PP
+
+.SS "virtual \fBDCFG_EDGE_CPTR\fP dcfg_api::DCFG_PROCESS::get_edge_info (DCFG_IDedge_id) const\fC [pure virtual]\fP"
+
+.PP
+Get access to data for an edge\&. \fBReturns:\fP
+.RS 4
+Pointer to interface object for specified edge or \fCNULL\fP if \fCedge_id\fP is invalid\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIedge_id\fP ID of desired edge\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_PROCESS::get_end_node_id () const\fC [pure virtual]\fP"
+
+.PP
+Get ID of end node\&. This is a 'special' node that is not a basic block\&. It is the target node of the edge from the last basic block executed in each thread\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ID number of end node\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_PROCESS::get_highest_thread_id () const\fC [pure virtual]\fP"
+
+.PP
+Get the highest thread ID\&. The lowest thread ID is zero (0)\&. Typically, threads are consecutively numbered from zero to \fBDCFG_PROCESS::get_highest_thread_id()\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Highest thread ID recorded when the DCFG was created\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_PROCESS::get_predecessor_node_ids (DCFG_IDtarget_node_id, \fBDCFG_ID_CONTAINER\fP &node_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get the set of source nodes that have an edge to the given target\&. Predecessor node sets are used in various graph algorithms\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCnode_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItarget_node_id\fP ID number of target node\&. 
+.br
+\fInode_ids\fP Container to which source node IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_PROCESS::get_process_id () const\fC [pure virtual]\fP"
+
+.PP
+Get the process ID\&. \fBReturns:\fP
+.RS 4
+Process ID captured when the DCFG was created\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_PROCESS::get_start_node_id () const\fC [pure virtual]\fP"
+
+.PP
+Get ID of start node\&. This is a 'special' node that is not a basic block\&. It is the source node of the edge to the first basic block executed in each thread\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ID number of start node\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_PROCESS::get_successor_node_ids (DCFG_IDsource_node_id, \fBDCFG_ID_CONTAINER\fP &node_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get the set of target nodes that have an edge from the given source\&. Successor node sets are used in various graph algorithms\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCnode_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsource_node_id\fP ID number of source node\&. 
+.br
+\fInode_ids\fP Container to which target node IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_PROCESS::get_unknown_node_id () const\fC [pure virtual]\fP"
+
+.PP
+Get ID of unknown node\&. This is a 'special' node that is not a basic block\&. It is a placeholder for any section of executable code for which basic-block data cannot be obtained\&. An unknown node should not appear in a well-formed graph\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ID number of the unknown node\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_PROCESS::is_end_node (DCFG_IDnode_id) const\fC [pure virtual]\fP"
+
+.PP
+Determine whether a node ID refers to the special non-basic-block end node\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if end node, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode_id\fP ID of node in question\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_PROCESS::is_special_node (DCFG_IDnode_id) const\fC [pure virtual]\fP"
+
+.PP
+Determine whether a node ID refers to any 'special' (non-basic-block) node\&. This could be a start, end, or unknown node\&. If this returns \fCfalse\fP it does not necessarily mean that the node is a basic-block; it could be that the ID is invalid\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+\fCtrue\fP if node is special, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode_id\fP ID of node in question\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_PROCESS::is_start_node (DCFG_IDnode_id) const\fC [pure virtual]\fP"
+
+.PP
+Determine whether a node ID refers to the special non-basic-block start node\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if start node, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode_id\fP ID of node in question\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_api::DCFG_PROCESS::is_unknown_node (DCFG_IDnode_id) const\fC [pure virtual]\fP"
+
+.PP
+Determine whether a node ID refers to the special non-basic-block 'unknown' node\&. A well-formed DCFG should not have any unknown nodes\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+\fCtrue\fP if unknown node, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode_id\fP ID of node in question\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

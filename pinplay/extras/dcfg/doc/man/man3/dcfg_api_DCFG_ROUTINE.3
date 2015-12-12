@@ -1,0 +1,181 @@
+.TH "dcfg_api::DCFG_ROUTINE" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_api::DCFG_ROUTINE \- 
+.PP
+Interface to information about a routine in an image\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_api\&.H>\fP
+.PP
+Inherits \fBdcfg_api::DCFG_LOOP_CONTAINER\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual DCFG_ID \fBget_process_id\fP () const =0"
+.br
+.RI "\fIGet the process ID\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_image_id\fP () const =0"
+.br
+.RI "\fIGet the image ID\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_routine_id\fP () const =0"
+.br
+.RI "\fIGet routine ID, which equals the basic-block ID of the entry node\&. \fP"
+.ti -1c
+.RI "virtual const std::string * \fBget_symbol_name\fP () const =0"
+.br
+.RI "\fIGet symbol name of this routine\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_entry_edge_ids\fP (\fBDCFG_ID_CONTAINER\fP &edge_ids) const =0"
+.br
+.RI "\fIGet set of entry edge IDs\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_exit_edge_ids\fP (\fBDCFG_ID_CONTAINER\fP &edge_ids) const =0"
+.br
+.RI "\fIGet set of exit edge IDs\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_idom_node_id\fP (DCFG_ID node_id) const =0"
+.br
+.RI "\fIGet immediate dominator\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_entry_count\fP () const =0"
+.br
+.RI "\fIGet dynamic entry count\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_entry_count_for_thread\fP (UINT32 thread_id) const =0"
+.br
+.RI "\fIGet dynamic entry count per thread\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface to information about a routine in an image\&. 
+
+A routine is also known as a subroutine, function, or procedure\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual UINT64 dcfg_api::DCFG_ROUTINE::get_entry_count () const\fC [pure virtual]\fP"
+
+.PP
+Get dynamic entry count\&. This is the number of times the routine was called or otherwise entered\&. By the DCFG definition, a routine can only be entered at its entry node\&. A call within a routine to its entry node is considered an entry (via recursion)\&. If there is a branch within a routine to its entry node, it will also be considered an entry (this is unusual)\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of times routine was entered, summed across all threads\&. 
+.RE
+.PP
+
+.SS "virtual UINT64 dcfg_api::DCFG_ROUTINE::get_entry_count_for_thread (UINT32thread_id) const\fC [pure virtual]\fP"
+
+.PP
+Get dynamic entry count per thread\&. See \fBDCFG_ROUTINE::get_entry_count()\fP for entry-count definition\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of times routine was entered in given thread\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIthread_id\fP Thread number\&. Typically, threads are consecutively numbered from zero to \fBDCFG_PROCESS::get_highest_thread_id()\fP\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_ROUTINE::get_entry_edge_ids (\fBDCFG_ID_CONTAINER\fP &edge_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get set of entry edge IDs\&. For routines, these are typically from 'call' statements, but they can also include branches to routines for unstructured code\&. The source of an entry edge will be from another routine except in the case of direct recursion (call from routine to itself)\&. The target of an entry edge will always be the entry node\&. This set does \fInot\fP include incoming return edges\&. If you also want return edges, use \fBDCFG_GRAPH_BASE::get_inbound_edge_ids()\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCedge_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIedge_ids\fP Container to which exit edge IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_ROUTINE::get_exit_edge_ids (\fBDCFG_ID_CONTAINER\fP &edge_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get set of exit edge IDs\&. For routines, these are typically from 'return' statements, but they can also include branches out of routines for unstructured code\&. The target of an exit edge will be to another routine except for direct recursion\&. This set does \fInot\fP include outgoing call edges\&. If you also want call edges, use \fBDCFG_GRAPH_BASE::get_outbound_edge_ids()\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCedge_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIedge_ids\fP Container to which exit edge IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_ROUTINE::get_idom_node_id (DCFG_IDnode_id) const\fC [pure virtual]\fP"
+
+.PP
+Get immediate dominator\&. The immediate dominator (idom) is the last node before the given node that must be executed before the given node is executed\&. The idom of the entry node is itself\&. The idom must be within the routine, i\&.e\&., it does not consider edges between routines\&. Idoms relationships are used in many graph algorithms\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ID number of idom of \fCnode_id\fP or zero (0) if \fCnode_id\fP is not in this routine\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fInode_id\fP ID number of \fIdominated\fP node\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_ROUTINE::get_image_id () const\fC [pure virtual]\fP"
+
+.PP
+Get the image ID\&. \fBReturns:\fP
+.RS 4
+Image ID of this routine\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_ROUTINE::get_process_id () const\fC [pure virtual]\fP"
+
+.PP
+Get the process ID\&. \fBReturns:\fP
+.RS 4
+Process ID of this routine\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_ROUTINE::get_routine_id () const\fC [pure virtual]\fP"
+
+.PP
+Get routine ID, which equals the basic-block ID of the entry node\&. By the DCFG definition, a routine can only have one entry node\&. If there is a call into the 'middle' of a routine, that entry point defines a separate routine in a DCFG\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ID number of entry node\&. 
+.RE
+.PP
+
+.SS "virtual const std::string* dcfg_api::DCFG_ROUTINE::get_symbol_name () const\fC [pure virtual]\fP"
+
+.PP
+Get symbol name of this routine\&. For more comprehensive symbol and source-code data, use \fBDCFG_BASIC_BLOCK::get_symbol_name()\fP, \fBDCFG_BASIC_BLOCK::get_source_filename()\fP, and \fBDCFG_BASIC_BLOCK::get_source_line_number()\fP for one or more basic blocks in this routine\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Pointer to name of the symbol at the entry node of the routine if it exists, \fCNULL\fP otherwise\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

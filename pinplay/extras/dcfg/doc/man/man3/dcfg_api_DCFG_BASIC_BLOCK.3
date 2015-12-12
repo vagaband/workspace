@@ -1,0 +1,236 @@
+.TH "dcfg_api::DCFG_BASIC_BLOCK" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_api::DCFG_BASIC_BLOCK \- 
+.PP
+Interface to information about a basic block\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_api\&.H>\fP
+.PP
+Inherits \fBdcfg_api::DCFG_GRAPH_BASE\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual DCFG_ID \fBget_basic_block_id\fP () const =0"
+.br
+.RI "\fIGet basic-block ID number\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_process_id\fP () const =0"
+.br
+.RI "\fIGet the process ID\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_image_id\fP () const =0"
+.br
+.RI "\fIGet the image ID\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_routine_id\fP () const =0"
+.br
+.RI "\fIGet routine ID\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_inner_loop_id\fP () const =0"
+.br
+.RI "\fIGet innermost loop ID\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_first_instr_addr\fP () const =0"
+.br
+.RI "\fIGet starting or base address\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_last_instr_addr\fP () const =0"
+.br
+.RI "\fIGet the address of the last instruction\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_size\fP () const =0"
+.br
+.RI "\fIGet size\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_num_instrs\fP () const =0"
+.br
+.RI "\fIGet \fIstatic\fP number of instructions in the block\&. \fP"
+.ti -1c
+.RI "virtual const std::string * \fBget_symbol_name\fP () const =0"
+.br
+.RI "\fIGet symbol name of this block\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_symbol_offset\fP () const =0"
+.br
+.RI "\fIGet symbol offset of this block\&. \fP"
+.ti -1c
+.RI "virtual const std::string * \fBget_source_filename\fP () const =0"
+.br
+.RI "\fIGet name of source file for this block\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_source_line_number\fP () const =0"
+.br
+.RI "\fIGet line number in source file this block\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_exec_count\fP () const =0"
+.br
+.RI "\fIGet dynamic execution count\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_exec_count_for_thread\fP (UINT32 thread_id) const =0"
+.br
+.RI "\fIGet dynamic execution count\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface to information about a basic block\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual DCFG_ID dcfg_api::DCFG_BASIC_BLOCK::get_basic_block_id () const\fC [pure virtual]\fP"
+
+.PP
+Get basic-block ID number\&. Basic-block ID numbers are unique within a process\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ID number of this basic block\&. 
+.RE
+.PP
+
+.SS "virtual UINT64 dcfg_api::DCFG_BASIC_BLOCK::get_exec_count () const\fC [pure virtual]\fP"
+
+.PP
+Get dynamic execution count\&. \fBReturns:\fP
+.RS 4
+Number of times the block was executed, summed across all threads\&. 
+.RE
+.PP
+
+.SS "virtual UINT64 dcfg_api::DCFG_BASIC_BLOCK::get_exec_count_for_thread (UINT32thread_id) const\fC [pure virtual]\fP"
+
+.PP
+Get dynamic execution count\&. \fBReturns:\fP
+.RS 4
+Number of times the block was executed in given thread\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIthread_id\fP Thread number\&. Typically, threads are consecutively numbered from zero to \fBDCFG_PROCESS::get_highest_thread_id()\fP\&. 
+.RE
+.PP
+
+.SS "virtual UINT64 dcfg_api::DCFG_BASIC_BLOCK::get_first_instr_addr () const\fC [pure virtual]\fP"
+
+.PP
+Get starting or base address\&. \fBReturns:\fP
+.RS 4
+Address of first instruction in this block\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_BASIC_BLOCK::get_image_id () const\fC [pure virtual]\fP"
+
+.PP
+Get the image ID\&. \fBReturns:\fP
+.RS 4
+Image ID of this block\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_BASIC_BLOCK::get_inner_loop_id () const\fC [pure virtual]\fP"
+
+.PP
+Get innermost loop ID\&. To find all loops containing this block, get the innermost loop and then follow the parent loop IDs until there are no parents\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ID number of innermost loop containing this block or zero (0) if none\&. 
+.RE
+.PP
+
+.SS "virtual UINT64 dcfg_api::DCFG_BASIC_BLOCK::get_last_instr_addr () const\fC [pure virtual]\fP"
+
+.PP
+Get the address of the last instruction\&. This is \fInot\fP the address of the last byte in the block unless the last instruction is exactly one byte long\&. The address of the last byte is \fBDCFG_BASIC_BLOCK::get_first_instr_addr()\fP + \fBDCFG_BASIC_BLOCK::get_size()\fP - 1\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Address of last instruction in this block\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_BASIC_BLOCK::get_num_instrs () const\fC [pure virtual]\fP"
+
+.PP
+Get \fIstatic\fP number of instructions in the block\&. To get the dynamic count of instructions executed, use \fBDCFG_GRAPH_BASE::get_instr_count()\fP or \fBDCFG_GRAPH_BASE::get_instr_count_for_thread()\fP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Static number of instructions in this block\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_BASIC_BLOCK::get_process_id () const\fC [pure virtual]\fP"
+
+.PP
+Get the process ID\&. \fBReturns:\fP
+.RS 4
+Process ID of this block\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_BASIC_BLOCK::get_routine_id () const\fC [pure virtual]\fP"
+
+.PP
+Get routine ID\&. \fBReturns:\fP
+.RS 4
+routine ID number of this block or zero (0) if none\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_BASIC_BLOCK::get_size () const\fC [pure virtual]\fP"
+
+.PP
+Get size\&. \fBReturns:\fP
+.RS 4
+Size of this block in bytes\&. 
+.RE
+.PP
+
+.SS "virtual const std::string* dcfg_api::DCFG_BASIC_BLOCK::get_source_filename () const\fC [pure virtual]\fP"
+
+.PP
+Get name of source file for this block\&. \fBReturns:\fP
+.RS 4
+Pointer to name of the source filename at the base address of this block if it exists, \fCNULL\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_BASIC_BLOCK::get_source_line_number () const\fC [pure virtual]\fP"
+
+.PP
+Get line number in source file this block\&. \fBReturns:\fP
+.RS 4
+Line number at the base address of this block if it exists, zero (0) otherwise\&. 
+.RE
+.PP
+
+.SS "virtual const std::string* dcfg_api::DCFG_BASIC_BLOCK::get_symbol_name () const\fC [pure virtual]\fP"
+
+.PP
+Get symbol name of this block\&. \fBReturns:\fP
+.RS 4
+Pointer to name of the symbol at the base address of this block if one exists, \fCNULL\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_BASIC_BLOCK::get_symbol_offset () const\fC [pure virtual]\fP"
+
+.PP
+Get symbol offset of this block\&. \fBReturns:\fP
+.RS 4
+Difference between base address of the symbol returned in \fBDCFG_BASIC_BLOCK::get_symbol_name()\fP and the base address of this block or zero (0) if no symbol exits\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

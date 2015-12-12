@@ -1,0 +1,45 @@
+.TH "dcfg_api::DCFG_ID_CONTAINER" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_api::DCFG_ID_CONTAINER \- 
+.PP
+Interface for any container of ID numbers\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_api\&.H>\fP
+.PP
+Inherited by \fBdcfg_api::DCFG_ID_SET\fP, and \fBdcfg_api::DCFG_ID_VECTOR\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBadd_id\fP (DCFG_ID id)=0"
+.br
+.RI "\fIAdd one ID to the container\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface for any container of ID numbers\&. 
+
+The API programmer is free to define and use any class that implements this interface to collect ID numbers (process IDs, basic blocks, etc\&.) from the relevant DCFG APIs\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void dcfg_api::DCFG_ID_CONTAINER::add_id (DCFG_IDid)\fC [pure virtual]\fP"
+
+.PP
+Add one ID to the container\&. All concrete implementations must define this method\&. \fBParameters:\fP
+.RS 4
+\fIid\fP ID to add\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBdcfg_api::DCFG_ID_SET\fP, and \fBdcfg_api::DCFG_ID_VECTOR\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

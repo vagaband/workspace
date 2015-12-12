@@ -1,0 +1,109 @@
+.TH "dcfg_pin_api::DCFG_PIN_MANAGER" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_pin_api::DCFG_PIN_MANAGER \- 
+.PP
+Connection between a Pin tool and a DCFG_DATA object\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_pin_api\&.H>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBdcfg_enable_knob\fP () const "
+.br
+.RI "\fIWhether the '-dcfg' knob was used on the command-line\&. \fP"
+.ti -1c
+.RI "virtual void \fBactivate\fP ()=0"
+.br
+.RI "\fIInitialize and add Pin instrumentation\&. \fP"
+.ti -1c
+.RI "virtual void \fBactivate\fP (void *pinplay_engine)=0"
+.br
+.RI "\fIInitialize and add PinPlay instrumentation\&. \fP"
+.ti -1c
+.RI "virtual \fBdcfg_api::DCFG_DATA_CPTR\fP \fBget_dcfg_data\fP () const =0"
+.br
+.RI "\fIGet access to DCFG data being constructed by the Pin tool\&. \fP"
+.ti -1c
+.RI "virtual void \fBset_cfg_collection\fP (bool enable)=0"
+.br
+.RI "\fIExplicitly set CFG-data collection\&. \fP"
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBDCFG_PIN_MANAGER\fP * \fBnew_manager\fP ()"
+.br
+.RI "\fICreate a new \fBDCFG_PIN_MANAGER\fP\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Connection between a Pin tool and a DCFG_DATA object\&. 
+
+This is an interface; use \fBDCFG_PIN_MANAGER::new_manager()\fP to create an object that implements the interface\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void dcfg_pin_api::DCFG_PIN_MANAGER::activate ()\fC [pure virtual]\fP"
+
+.PP
+Initialize and add Pin instrumentation\&. Default behavior depends on settings of dcfg knobs\&. 
+.SS "virtual void dcfg_pin_api::DCFG_PIN_MANAGER::activate (void *pinplay_engine)\fC [pure virtual]\fP"
+
+.PP
+Initialize and add PinPlay instrumentation\&. Default behavior depends on settings of dcfg knobs and whether logger, replayer or both are activated\&. \fBParameters:\fP
+.RS 4
+\fIpinplay_engine\fP pointer to existing pinplay engine or \fCNULL\fP if none\&. 
+.RE
+.PP
+
+.SS "virtual bool dcfg_pin_api::DCFG_PIN_MANAGER::dcfg_enable_knob () const\fC [virtual]\fP"
+
+.PP
+Whether the '-dcfg' knob was used on the command-line\&. \fBReturns:\fP
+.RS 4
+\fCtrue\fP if '-dcfg' knob was used, \fCfalse\fP otherwise\&. 
+.RE
+.PP
+
+.SS "virtual \fBdcfg_api::DCFG_DATA_CPTR\fP dcfg_pin_api::DCFG_PIN_MANAGER::get_dcfg_data () const\fC [pure virtual]\fP"
+
+.PP
+Get access to DCFG data being constructed by the Pin tool\&. The returned DCFG will only be valid at the end of a region or program\&. There will not be a DCFG if an \fBactivate()\fP method has not been called\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Pointer to associated DCFG data or \fCNULL\fP if none\&. 
+.RE
+.PP
+
+.SS "static \fBDCFG_PIN_MANAGER\fP* dcfg_pin_api::DCFG_PIN_MANAGER::new_manager ()\fC [static]\fP"
+
+.PP
+Create a new \fBDCFG_PIN_MANAGER\fP\&. This is a factory method to create a new object that implements the \fBDCFG_PIN_MANAGER\fP interface\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Pointer to new object\&. It can be freed with \fCdelete\fP\&. 
+.RE
+.PP
+
+.SS "virtual void dcfg_pin_api::DCFG_PIN_MANAGER::set_cfg_collection (boolenable)\fC [pure virtual]\fP"
+
+.PP
+Explicitly set CFG-data collection\&. This controls whether control-flow instructions are instrumented to build a CFG\&. This is independent of whether a DCFG file is written\&. If a DCFG file is written with CFG collection disabled, it will have no CFG data in it\&. \fBParameters:\fP
+.RS 4
+\fIenable\fP turn CFG collection on or off\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.

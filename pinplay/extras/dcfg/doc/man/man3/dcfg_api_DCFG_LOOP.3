@@ -1,0 +1,192 @@
+.TH "dcfg_api::DCFG_LOOP" 3 "Tue Jun 2 2015" "DCFG" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dcfg_api::DCFG_LOOP \- 
+.PP
+Interface to information about a loop\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dcfg_api\&.H>\fP
+.PP
+Inherits \fBdcfg_api::DCFG_GRAPH_BASE\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual DCFG_ID \fBget_process_id\fP () const =0"
+.br
+.RI "\fIGet the process ID\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_image_id\fP () const =0"
+.br
+.RI "\fIGet the image ID\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_routine_id\fP () const =0"
+.br
+.RI "\fIGet routine ID\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_loop_id\fP () const =0"
+.br
+.RI "\fIGet loop ID, which equals the basic-block ID of the head node\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_entry_edge_ids\fP (\fBDCFG_ID_CONTAINER\fP &edge_ids) const =0"
+.br
+.RI "\fIGet set of IDs of the entry edges\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_exit_edge_ids\fP (\fBDCFG_ID_CONTAINER\fP &edge_ids) const =0"
+.br
+.RI "\fIGet set of IDs of the exit edges\&. \fP"
+.ti -1c
+.RI "virtual UINT32 \fBget_back_edge_ids\fP (\fBDCFG_ID_CONTAINER\fP &edge_ids) const =0"
+.br
+.RI "\fIGet set of IDs of the back-edges\&. \fP"
+.ti -1c
+.RI "virtual DCFG_ID \fBget_parent_loop_id\fP () const =0"
+.br
+.RI "\fIGet head node ID of most immediate containing loop, if any\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_iteration_count\fP () const =0"
+.br
+.RI "\fIGet dynamic iteration count\&. \fP"
+.ti -1c
+.RI "virtual UINT64 \fBget_iteration_count_for_thread\fP (UINT32 thread_id) const =0"
+.br
+.RI "\fIGet dynamic execution count per thread\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface to information about a loop\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual UINT32 dcfg_api::DCFG_LOOP::get_back_edge_ids (\fBDCFG_ID_CONTAINER\fP &edge_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get set of IDs of the back-edges\&. These are the edges that are traversed when a loop is repeated following an entry\&. The target node of each back edge will be the head node of the loop by definition\&. By definition, an edge n->h is a back edge if h dominates n, where h is the head node\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCedge_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIedge_ids\fP Container to which edge IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_LOOP::get_entry_edge_ids (\fBDCFG_ID_CONTAINER\fP &edge_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get set of IDs of the entry edges\&. These are the edges that are traversed when a loop is entered from somewhere outside the loop\&. This set does \fInot\fP include back edges\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCedge_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIedge_ids\fP Container to which edge IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual UINT32 dcfg_api::DCFG_LOOP::get_exit_edge_ids (\fBDCFG_ID_CONTAINER\fP &edge_ids) const\fC [pure virtual]\fP"
+
+.PP
+Get set of IDs of the exit edges\&. These are the edges that are traversed when a loop is exited\&. This set does \fInot\fP include call edges from the loop\&. If you also want call edges, use \fBDCFG_GRAPH_BASE::get_outbound_edge_ids()\fP\&. Note that any given edge may exit more than one loop when loops are nested\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of IDs that were added to \fCedge_ids\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIedge_ids\fP Container to which edge IDs are added\&. Previous contents of the container are \fInot\fP emptied by this call, so it should be emptied by the programmer before the call if desired\&. The programmer can use any implementation of \fBDCFG_ID_CONTAINER\fP: \fBDCFG_ID_VECTOR\fP, \fBDCFG_ID_SET\fP, etc\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_LOOP::get_image_id () const\fC [pure virtual]\fP"
+
+.PP
+Get the image ID\&. \fBReturns:\fP
+.RS 4
+Image ID of this loop\&. 
+.RE
+.PP
+
+.SS "virtual UINT64 dcfg_api::DCFG_LOOP::get_iteration_count () const\fC [pure virtual]\fP"
+
+.PP
+Get dynamic iteration count\&. This is the number of times the loop was executed, including entry from outside the loop and via its back edges\&. By definition, a loop can only be entered at its head node\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of times loop was execcuted, summed across all threads\&. 
+.RE
+.PP
+
+.SS "virtual UINT64 dcfg_api::DCFG_LOOP::get_iteration_count_for_thread (UINT32thread_id) const\fC [pure virtual]\fP"
+
+.PP
+Get dynamic execution count per thread\&. See \fBDCFG_LOOP::get_iteration_count()\fP for iteration-count definition\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Number of times loop was executed in given thread\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIthread_id\fP Thread number\&. Typically, threads are consecutively numbered from zero to \fBDCFG_PROCESS::get_highest_thread_id()\fP\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_LOOP::get_loop_id () const\fC [pure virtual]\fP"
+
+.PP
+Get loop ID, which equals the basic-block ID of the head node\&. The head node is the common target of all the back edges in the loop\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ID number of head node\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_LOOP::get_parent_loop_id () const\fC [pure virtual]\fP"
+
+.PP
+Get head node ID of most immediate containing loop, if any\&. This indicates loop nesting\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+ID number of head node of parent loop or zero (0) if there is no parent loop\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_LOOP::get_process_id () const\fC [pure virtual]\fP"
+
+.PP
+Get the process ID\&. \fBReturns:\fP
+.RS 4
+Process ID of this loop\&. 
+.RE
+.PP
+
+.SS "virtual DCFG_ID dcfg_api::DCFG_LOOP::get_routine_id () const\fC [pure virtual]\fP"
+
+.PP
+Get routine ID\&. \fBReturns:\fP
+.RS 4
+routine ID number of this loop\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for DCFG from the source code\&.
