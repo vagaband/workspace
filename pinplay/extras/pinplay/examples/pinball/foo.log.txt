@@ -1,0 +1,22 @@
+Enabled messages [UnixVersion()] 43  info: Informational messages (enabled by default)
+[0] Pinball basename: /home/bingo/workspace/pinplay/extras/pinplay/examples/pinball/foo
+Found VDSO area from AUXV at 0x7fff2cdfe000:0x7fff2cdff000
+Loading /home/bingo/workspace/pinplay/extras/pinplay/examples/hello64(0x000400000:0x000601047)
+Loading /lib64/ld-linux-x86-64.so.2(0x7fdf54a65000:0x7fdf54c891c7)
+[0] Started logging thread OSPid: 8099 OSTid: 8099
+[0] region-start
+[0] + RECEIVED AND PROCESSED START event: ip:0x7fdf54a662d0 icount: 0 time:Wed Dec 23 22:12:48 2015
+Replacing AT_SYSINFO_EHDR
+	 from AT_SYSINFO_EHDR, 0x7fff2cdfe000
+	 to AT_IGNORE,0
+[0] Stopping all threads - processing controller event
+[0] + STARTING NEW REGION at: ip:0x7fdf54a662d3 icount: 0 time:Wed Dec 23 22:12:48 2015
+[0]  Region# : 0
+[0] Region has 1 existing threads(s)
+[0] Resuming all threads - complied processing controller event
+[0] InitRegion : 0
+Loading /lib/x86_64-linux-gnu/libc.so.6(0x7fdf340e4000:0x7fdf344a82bf)
+[0] EndRegion called for pp_id: 0
+[0] ThreadFini: logger thread at 0x7fdf341a5307
+[0] Closing global resources.
+[0] Wrote address ranges: pagecount: 120. Logged text pages count:74 Logged data pages count:0 (total logged pages:74)

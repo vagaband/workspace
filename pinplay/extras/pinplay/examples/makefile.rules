@@ -14,7 +14,7 @@
 
 ###### Place all generic definitions here ######
 
-PIN_ROOT?=$(shell pwd | sed '/extras.*/s///g')
+#PIN_ROOT?=$(shell pwd | sed '/extras.*/s///g')
 
 PINPLAY_HOME=$(PIN_ROOT)/extras/pinplay/
 

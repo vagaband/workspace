@@ -309,7 +309,7 @@ class Log(object):
         @return Exit code from the logger pintool
         """
 
-        # import pdb;  pdb.set_trace()
+        import pdb;  pdb.set_trace()
         options = self.ParseCommandLine()
 
         # Get the kit to be used for logging.

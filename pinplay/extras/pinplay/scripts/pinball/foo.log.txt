@@ -1,0 +1,187 @@
+Enabled messages [UnixVersion()] 43  info: Informational messages (enabled by default)
+[0] Pinball basename: /home/bingo/workspace/pinplay/extras/pinplay/scripts/pinball/foo
+Found VDSO area from AUXV at 0x7fff3b1fe000:0x7fff3b1ff000
+Loading /usr/bin/python2.7(0x000400000:0x000943937)
+Loading /lib64/ld-linux-x86-64.so.2(0x7fa5e6b3a000:0x7fa5e6d5e1c7)
+[0] Started logging thread OSPid: 58102 OSTid: 58102
+[0] region-start
+[0] + RECEIVED AND PROCESSED START event: ip:0x7fa5e6b3b2d0 icount: 0 time:Mon Dec 28 01:00:26 2015
+Replacing AT_SYSINFO_EHDR
+	 from AT_SYSINFO_EHDR, 0x7fff3b1fe000
+	 to AT_IGNORE,0
+[0] Stopping all threads - processing controller event
+[0] + STARTING NEW REGION at: ip:0x7fa5e6b3b2d3 icount: 0 time:Mon Dec 28 01:00:26 2015
+[0]  Region# : 0
+[0] Region has 1 existing threads(s)
+[0] Resuming all threads - complied processing controller event
+[0] InitRegion : 0
+[0] LogPage - Update existing logged text page: 0x7fa5e6d5c000 early 1 icount 14 
+[0] LogPage - Update existing logged text page: 0x7fa5e6d5d000 early 1 icount 18 
+[0] LogPage - Update existing logged text page: 0x7fa5e6b3a000 early 1 icount 316 
+[0] LogPage - Update existing logged text page: 0x7fa5e6b55000 early 1 icount 442 
+[0] LogPage - Update existing logged text page: 0x7fa5e6d5e000 early 1 icount 818 
+[0] LogPage - Update existing logged text page: 0x7fa5e6b56000 early 1 icount 1428 
+[0] LogPage - Update existing logged text page: 0x000400000 early 1 icount 1720 
+[0] LogPage - Update existing logged text page: 0x0008bc000 early 1 icount 1922 
+[0] LogPage - Update existing logged text page: 0x00040c000 early 1 icount 3265 
+[0] LogPage - Update existing logged text page: 0x7fa5e6b59000 early 1 icount 5640 
+[0] LogPage - Update existing logged text page: 0x000414000 early 1 icount 42589 
+[0] LogPage - Update existing logged text page: 0x000413000 early 1 icount 43112 
+[0] LogPage - Update existing logged text page: 0x000405000 early 1 icount 75887 
+[0] LogPage - Update existing logged text page: 0x000402000 early 1 icount 76504 
+[0] LogPage - Update existing logged text page: 0x000406000 early 1 icount 80670 
+[0] LogPage - Update existing logged text page: 0x000404000 early 1 icount 97546 
+[0] LogPage - Update existing logged text page: 0x00040a000 early 1 icount 118207 
+[0] LogPage - Update existing logged text page: 0x0008bd000 early 1 icount 171148 
+[0] LogPage - Update existing logged text page: 0x000403000 early 1 icount 171272 
+[0] LogPage - Update existing logged text page: 0x00040d000 early 1 icount 171327 
+[0] LogPage - Update existing logged text page: 0x000931000 early 1 icount 172703 
+[0] LogPage - Update existing logged text page: 0x000415000 early 1 icount 176680 
+[0] LogPage - Update existing logged text page: 0x000416000 early 1 icount 179074 
+Loading /lib/x86_64-linux-gnu/libpthread.so.0(0x7fa5cde93000:0x7fa5ce0b052f)
+Loading /lib/x86_64-linux-gnu/libc.so.6(0x7fa5cdace000:0x7fa5cde922bf)
+Loading /lib/x86_64-linux-gnu/libdl.so.2(0x7fa5cd8ca000:0x7fa5cdacd12f)
+Loading /lib/x86_64-linux-gnu/libutil.so.1(0x7fa5cd6c7000:0x7fa5cd8c9117)
+Loading /lib/x86_64-linux-gnu/libz.so.1(0x7fa5cd4ae000:0x7fa5cd6c6147)
+Loading /lib/x86_64-linux-gnu/libm.so.6(0x7fa5cd186000:0x7fa5cd48b167)
+[0] LogPage - Update existing logged text page: 0x7fa5ce0b0000 early 1 icount 186929 
+[0] LogPage - Update existing logged text page: 0x7fa5cde92000 early 1 icount 191683 
+[0] LogPage - Update existing logged text page: 0x7fa5cdc46000 early 1 icount 192621 
+[0] LogPage - Update existing logged text page: 0x7fa5cde8e000 early 1 icount 195020 
+[0] LogPage - Update existing logged text page: 0x000942000 early 1 icount 195194 
+[0] LogPage - Update existing logged text page: 0x00091e000 early 1 icount 195197 
+[0] LogPage - Update existing logged text page: 0x0008f4000 early 1 icount 195213 
+[0] LogPage - Update existing logged text page: 0x0005d2000 early 1 icount 195214 
+[0] LogPage - Update existing logged text page: 0x000943000 early 1 icount 195239 
+[0] LogPage - Update existing logged text page: 0x0005c0000 early 1 icount 196094 
+[0] LogPage - Update existing logged text page: 0x000941000 early 1 icount 196255 
+[0] LogPage - Update existing logged text page: 0x000938000 early 1 icount 196273 
+[0] LogPage - Update existing logged text page: 0x000618000 early 1 icount 196356 
+[0] LogPage - Update existing logged text page: 0x00093d000 early 1 icount 259704 
+[0] LogPage - Update existing logged text page: 0x00093f000 early 1 icount 259707 
+[0] LogPage - Update existing logged text page: 0x000939000 early 1 icount 262314 
+[0] LogPage - Update existing logged text page: 0x00091f000 early 1 icount 263197 
+[0] LogPage - Update existing logged text page: 0x000917000 early 1 icount 263208 
+[0] LogPage - Update existing logged text page: 0x00090a000 early 1 icount 263258 
+[0] LogPage - Update existing logged text page: 0x00040e000 early 1 icount 263374 
+[0] LogPage - Update existing logged text page: 0x000937000 early 1 icount 265519 
+[0] LogPage - Update existing logged text page: 0x0005bd000 early 1 icount 266332 
+[0] LogPage - Update existing logged text page: 0x0008cc000 early 1 icount 267386 
+[0] LogPage - Update existing logged text page: 0x00091d000 early 1 icount 267486 
+[0] LogPage - Update existing logged text page: 0x7fa5cdc54000 early 1 icount 272371 
+[0] LogPage - Update existing logged text page: 0x0005c6000 early 1 icount 272789 
+[0] LogPage - Update existing logged text page: 0x0008cd000 early 1 icount 283040 
+[0] LogPage - Update existing logged text page: 0x0005be000 early 1 icount 289059 
+[0] LogPage - Update existing logged text page: 0x000913000 early 1 icount 307715 
+[0] LogPage - Update existing logged text page: 0x00090d000 early 1 icount 314032 
+[0] LogPage - Update existing logged text page: 0x000914000 early 1 icount 314904 
+[0] LogPage - Update existing logged text page: 0x000619000 early 1 icount 322396 
+[0] LogPage - Update existing logged text page: 0x0005bb000 early 1 icount 323780 
+[0] LogPage - Update existing logged text page: 0x0005bc000 early 1 icount 324978 
+[0] LogPage - Update existing logged text page: 0x00090f000 early 1 icount 327380 
+[0] LogPage - Update existing logged text page: 0x000920000 early 1 icount 327887 
+[0] LogPage - Update existing logged text page: 0x00060d000 early 1 icount 327945 
+[0] LogPage - Update existing logged text page: 0x000613000 early 1 icount 328009 
+[0] LogPage - Update existing logged text page: 0x00060c000 early 1 icount 328023 
+[0] LogPage - Update existing logged text page: 0x000612000 early 1 icount 328348 
+[0] LogPage - Update existing logged text page: 0x0005c2000 early 1 icount 343371 
+[0] LogPage - Update existing logged text page: 0x0005d0000 early 1 icount 356727 
+[0] LogPage - Update existing logged text page: 0x0005d3000 early 1 icount 359239 
+[0] LogPage - Update existing logged text page: 0x0005cf000 early 1 icount 360429 
+[0] LogPage - Update existing logged text page: 0x000918000 early 1 icount 367732 
+[0] LogPage - Update existing logged text page: 0x000909000 early 1 icount 381496 
+[0] LogPage - Update existing logged text page: 0x000916000 early 1 icount 480796 
+[0] LogPage - Update existing logged text page: 0x000910000 early 1 icount 484430 
+[0] LogPage - Update existing logged text page: 0x00090b000 early 1 icount 542323 
+[0] LogPage - Update existing logged text page: 0x0005c4000 early 1 icount 586151 
+[0] LogPage - Update existing logged text page: 0x0005c1000 early 1 icount 600026 
+[0] LogPage - Update existing logged text page: 0x00060b000 early 1 icount 603472 
+[0] LogPage - Update existing logged text page: 0x000915000 early 1 icount 640406 
+[0] LogPage - Update existing logged text page: 0x000908000 early 1 icount 753515 
+[0] LogPage - Update existing logged text page: 0x00090c000 early 1 icount 781961 
+[0] LogPage - Update existing logged text page: 0x00090e000 early 1 icount 797302 
+[0] LogPage - Update existing logged text page: 0x0005c7000 early 1 icount 822212 
+[0] LogPage - Update existing logged text page: 0x0005ca000 early 1 icount 825704 
+[0] LogPage - Update existing logged text page: 0x0008e4000 early 1 icount 992438 
+[0] LogPage - Update existing logged text page: 0x00093e000 early 1 icount 992450 
+[0] LogPage - Update existing logged text page: 0x00093a000 early 1 icount 1137810 
+[0] LogPage - Update existing logged text page: 0x000911000 early 1 icount 1173517 
+[0] LogPage - Update existing logged text page: 0x000912000 early 1 icount 1173520 
+[0] LogPage - Update existing logged text page: 0x000611000 early 1 icount 1206043 
+[0] LogPage - Update existing logged text page: 0x0005d6000 early 1 icount 1210202 
+[0] LogPage - Update existing logged text page: 0x00060e000 early 1 icount 1702190 
+[0] LogPage - Update existing logged text page: 0x00060a000 early 1 icount 1704546 
+[0] LogPage - Update existing logged text page: 0x0005c8000 early 1 icount 1730820 
+[0] LogPage - Update existing logged text page: 0x0008ee000 early 1 icount 1776204 
+[0] LogPage - Update existing logged text page: 0x0008e8000 early 1 icount 1776213 
+[0] LogPage - Update existing logged text page: 0x0008e6000 early 1 icount 1776218 
+[0] LogPage - Update existing logged text page: 0x0008de000 early 1 icount 1986692 
+[0] LogPage - Update existing logged text page: 0x0008d4000 early 1 icount 1986702 
+[0] LogPage - Update existing logged text page: 0x0008d1000 early 1 icount 1988534 
+[0] LogPage - Update existing logged text page: 0x0008fa000 early 1 icount 2012830 
+[0] LogPage - Update existing logged text page: 0x0005bf000 early 1 icount 2017884 
+[0] LogPage - Update existing logged text page: 0x0005d8000 early 1 icount 2028834 
+[0] LogPage - Update existing logged text page: 0x0005c9000 early 1 icount 2056953 
+[0] LogPage - Update existing logged text page: 0x0005cb000 early 1 icount 2060045 
+[0] LogPage - Update existing logged text page: 0x000614000 early 1 icount 2061619 
+[0] LogPage - Update existing logged text page: 0x000904000 early 1 icount 2062412 
+[0] LogPage - Update existing logged text page: 0x000610000 early 1 icount 2065309 
+[0] LogPage - Update existing logged text page: 0x0008d0000 early 1 icount 2099998 
+[0] LogPage - Update existing logged text page: 0x7fa5cdc45000 early 1 icount 2111900 
+[0] LogPage - Update existing logged text page: 0x000940000 early 1 icount 2129087 
+[0] LogPage - Update existing logged text page: 0x000615000 early 1 icount 2129842 
+[0] LogPage - Update existing logged text page: 0x0005d4000 early 1 icount 2137804 
+[0] LogPage - Update existing logged text page: 0x0008f6000 early 1 icount 2140179 
+[0] LogPage - Update existing logged text page: 0x0005d7000 early 1 icount 2144728 
+[0] LogPage - Update existing logged text page: 0x0008f7000 early 1 icount 2150793 
+[0] LogPage - Update existing logged text page: 0x00060f000 early 1 icount 2150924 
+[0] LogPage - Update existing logged text page: 0x7fa5cdc55000 early 1 icount 2152224 
+[0] LogPage - Update existing logged text page: 0x00091c000 early 1 icount 2264151 
+[0] LogPage - Update existing logged text page: 0x00091a000 early 1 icount 2269824 
+[0] LogPage - Update existing logged text page: 0x000617000 early 1 icount 2315279 
+[0] LogPage - Update existing logged text page: 0x000919000 early 1 icount 2316059 
+[0] LogPage - Update existing logged text page: 0x00091b000 early 1 icount 2387992 
+[0] LogPage - Update existing logged text page: 0x0008e5000 early 1 icount 2718748 
+[0] LogPage - Update existing logged text page: 0x000932000 early 1 icount 2736844 
+[0] LogPage - Update existing logged text page: 0x000933000 early 1 icount 2738084 
+[0] LogPage - Update existing logged text page: 0x000934000 early 1 icount 2739317 
+[0] LogPage - Update existing logged text page: 0x000935000 early 1 icount 2740556 
+[0] LogPage - Update existing logged text page: 0x000936000 early 1 icount 2741796 
+[0] LogPage - Update existing logged text page: 0x0008ce000 early 1 icount 2744717 
+[0] LogPage - Update existing logged text page: 0x7fa5cdc36000 early 1 icount 2748094 
+[0] LogPage - Update existing logged text page: 0x0005d1000 early 1 icount 2801517 
+[0] LogPage - Update existing logged text page: 0x0008f3000 early 1 icount 2865657 
+[0] LogPage - Update existing logged text page: 0x0008f1000 early 1 icount 2898257 
+[0] LogPage - Update existing logged text page: 0x0008f2000 early 1 icount 2941852 
+[0] LogPage - Update existing logged text page: 0x0008ca000 early 1 icount 3054777 
+[0] LogPage - Update existing logged text page: 0x7fa5cdc4b000 early 1 icount 3086934 
+[0] LogPage - Update existing logged text page: 0x000408000 early 1 icount 3592017 
+[0] LogPage - Update existing logged text page: 0x0008ec000 early 1 icount 3944157 
+[0] LogPage - Update existing logged text page: 0x0008fd000 early 1 icount 4042612 
+[0] LogPage - Update existing logged text page: 0x0008fe000 early 1 icount 4067028 
+[0] LogPage - Update existing logged text page: 0x0005d5000 early 1 icount 4171780 
+[0] LogPage - Update existing logged text page: 0x7fa5cdc47000 early 1 icount 4193682 
+[0] LogPage - Update existing logged text page: 0x7fa5cdc4c000 early 1 icount 4195116 
+[0] LogPage - Update existing logged text page: 0x7fa5cdc41000 early 1 icount 4196026 
+[0] LogPage - Update existing logged text page: 0x0008ed000 early 1 icount 4197477 
+[0] LogPage - Update existing logged text page: 0x0008e7000 early 1 icount 4328839 
+[0] LogPage - Update existing logged text page: 0x7fa5cdc34000 early 1 icount 11292429 
+[0] LogPage - Update existing logged text page: 0x0008c5000 early 1 icount 11684167 
+[0] LogPage - Update existing logged text page: 0x0008c6000 early 1 icount 11685999 
+[0] LogPage - Update existing logged text page: 0x0005c5000 early 1 icount 13331054 
+[0] LogPage - Update existing logged text page: 0x0008c9000 early 1 icount 14657851 
+[0] LogPage - Update existing logged text page: 0x0008dc000 early 1 icount 14875986 
+[0] LogPage - Update existing logged text page: 0x0008db000 early 1 icount 14875991 
+[0] LogPage - Update existing logged text page: 0x0008d8000 early 1 icount 14876282 
+[0] LogPage - Update existing logged text page: 0x0008dd000 early 1 icount 14890335 
+[0] LogPage - Update existing logged text page: 0x0008d7000 early 1 icount 15080229 
+[0] LogPage - Update existing logged text page: 0x0008da000 early 1 icount 15096213 
+[0] LogPage - Update existing logged text page: 0x0008d9000 early 1 icount 15319191 
+[0] LogPage - Update existing logged text page: 0x0005ce000 early 1 icount 15958468 
+[0] LogPage - Update existing logged text page: 0x7fa5cdc35000 early 1 icount 16392412 
+[0] LogPage - Update existing logged text page: 0x0008f5000 early 1 icount 17006952 
+[0] LogPage - Update existing logged text page: 0x0005c3000 early 1 icount 17840664 
+[0] EndRegion called for pp_id: 0
+[0] ThreadFini: logger thread at 0x7fa5cdb8f307
+[0] Closing global resources.
+[0] Wrote address ranges: pagecount: 2267. Logged text pages count:2267 Logged data pages count:0 (total logged pages:2267)

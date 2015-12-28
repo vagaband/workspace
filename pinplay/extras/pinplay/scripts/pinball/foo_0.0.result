@@ -1,0 +1,388 @@
+-- start of image-load-log ---------------------------------------------------------------------
+Loading /usr/bin/python2.7(0x000400000:0x000943937)
+Loading /lib64/ld-linux-x86-64.so.2(0x7fa5e6b3a000:0x7fa5e6d5e1c7)
+Loading /lib/x86_64-linux-gnu/libpthread.so.0(0x7fa5cde93000:0x7fa5ce0b052f)
+Loading /lib/x86_64-linux-gnu/libc.so.6(0x7fa5cdace000:0x7fa5cde922bf)
+Loading /lib/x86_64-linux-gnu/libdl.so.2(0x7fa5cd8ca000:0x7fa5cdacd12f)
+Loading /lib/x86_64-linux-gnu/libutil.so.1(0x7fa5cd6c7000:0x7fa5cd8c9117)
+Loading /lib/x86_64-linux-gnu/libz.so.1(0x7fa5cd4ae000:0x7fa5cd6c6147)
+Loading /lib/x86_64-linux-gnu/libm.so.6(0x7fa5cd186000:0x7fa5cd48b167)
+preloaded_image: 1 1  0x000000000 0x7fa5e6d5e1c8 0x0008bcdd8 0x000000000 /usr/bin/python2.7
+preloaded_image: 2 0 0x7fa5e6b3a000 0x7fa5e6d5d9f8 0x7fa5e6d5ce70 0x7fa5e6b3a000 /lib64/ld-linux-x86-64.so.2
+-- end of image-load-log -----------------------------------------------------------------------
+pin-command-line: /home/bingo/workspace/pinplay/intel64/bin/pinbin -p32 /home/bingo/workspace/pinplay/ia32/bin/pinbin -waiting_process 58102 -waiting_injector 58107 -sigchld_handler 1 -follow_execv -t /home/bingo/workspace/pinplay/extras/pinplay/bin/intel64/pinplay-branch-predictor.so -log -xyzzy -log:basename pinball/foo -log:mt 1 -log:compressed bzip2 -log:region_id -log:whole_image -log:pages_early 1 -pinplay:max_threads 128
+app-command-line: python /home/bingo/test/test.py
+inscount: 20863838
+OSPid: 58102
+OSTid: 58102
+log_entries: 23168
+ended_before_sc: 0
+num_logged_true_dependencies (RAW): 0
+num_logged_false_dependencies (WAR/WAW): 0
+num_signals 0
+num_syscalls: 893
+file_type: text
+lit: 0
+user_name: root
+OS_info: Linux ubuntu 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64
+relogged: 0
+arch: x86_64
+num_static_threads: 1
+num_dynamic_threads: 1
+num_threads_started: 1
+copy_images: 0
+log creation date/time: Mon Dec 28 01:00:53 2015
+log format version: 2.2
+charm revision: 71293
+linker_break_address: 0x7fa5e6b4a970
+data_page_size:  4096
+text_page_size:  4096
+vdso_address: 0x7fff3b1fe000 0x7fff3b1ff000
+num_reg_descs:  132
+rax 0 8
+eax 1 4
+ax 2 2
+ah 3 1
+al 4 1
+rcx 5 8
+ecx 6 4
+cx 7 2
+ch 8 1
+cl 9 1
+rdx 10 8
+edx 11 4
+dx 12 2
+dh 13 1
+dl 14 1
+rbx 15 8
+ebx 16 4
+bx 17 2
+bh 18 1
+bl 19 1
+rsp 20 8
+esp 21 4
+sp 22 2
+spl 23 1
+rbp 24 8
+ebp 25 4
+bp 26 2
+bpl 27 1
+rsi 28 8
+esi 29 4
+si 30 2
+sil 31 1
+rdi 32 8
+edi 33 4
+di 34 2
+dil 35 1
+r8 36 8
+r8d 37 4
+r8w 38 2
+r8b 39 1
+r9 40 8
+r9d 41 4
+r9w 42 2
+r9b 43 1
+r10 44 8
+r10d 45 4
+r10w 46 2
+r10b 47 1
+r11 48 8
+r11d 49 4
+r11w 50 2
+r11b 51 1
+r12 52 8
+r12d 53 4
+r12w 54 2
+r12b 55 1
+r13 56 8
+r13d 57 4
+r13w 58 2
+r13b 59 1
+r14 60 8
+r14d 61 4
+r14w 62 2
+r14b 63 1
+r15 64 8
+r15d 65 4
+r15w 66 2
+r15b 67 1
+rip 68 8
+eip 69 4
+ip 70 2
+rflags 71 8
+eflags 72 4
+flags 73 2
+cs 74 2
+ds 75 2
+es 76 2
+ss 77 2
+fs 78 2
+gs 79 2
+fs-base 80 8
+gs-base 81 8
+fcw 82 2
+fsw 83 2
+ftw 84 1
+fop 85 2
+fpuip 86 4
+x87cs 87 2
+fpudp 88 4
+x87ds 89 2
+st0 90 10
+st1 91 10
+st2 92 10
+st3 93 10
+st4 94 10
+st5 95 10
+st6 96 10
+st7 97 10
+mxcsr 98 4
+xcr0 99 8
+XMM0 100 16
+YMM0 101 32
+XMM1 102 16
+YMM1 103 32
+XMM2 104 16
+YMM2 105 32
+XMM3 106 16
+YMM3 107 32
+XMM4 108 16
+YMM4 109 32
+XMM5 110 16
+YMM5 111 32
+XMM6 112 16
+YMM6 113 32
+XMM7 114 16
+YMM7 115 32
+XMM8 116 16
+YMM8 117 32
+XMM9 118 16
+YMM9 119 32
+XMM10 120 16
+YMM10 121 32
+XMM11 122 16
+YMM11 123 32
+XMM12 124 16
+YMM12 125 32
+XMM13 126 16
+YMM13 127 32
+XMM14 128 16
+YMM14 129 32
+XMM15 130 16
+YMM15 131 32
+ip_type: init_pc: 0x7fa5e6b3ea70
+ip_type:last_pc: 0x7fa5cdb8f307
+restore_text_pc: 1
+ip_entry:restoretext_pc: 0x7fa5e6b494ba
+ip_entry:restoretext_pc: 0x7fa5e6b464a0
+ip_entry:restoretext_pc: 0x7fa5cdafbd13
+ip_entry:restoretext_pc: 0x7fa5cdb48809
+ip_entry:restoretext_pc: 0x00051fbfd
+ip_entry:restoretext_pc: 0x7fa5cdafc973
+ip_entry:restoretext_pc: 0x7fa5e6b464ff
+ip_entry:restoretext_pc: 0x000518fe2
+ip_entry:restoretext_pc: 0x7fa5cdb4e88c
+ip_entry:restoretext_pc: 0x0005bb5ef
+ip_entry:restoretext_pc: 0x7fa5cdb560e8
+ip_entry:restoretext_pc: 0x7fa5e6b549ba
+ip_entry:restoretext_pc: 0x7fa5e6b4b98f
+ip_entry:restoretext_pc: 0x0004649bb
+ip_entry:restoretext_pc: 0x7fa5e6b45970
+ip_entry:restoretext_pc: 0x7fa5e6b50ded
+ip_entry:restoretext_pc: 0x7fa5cdafca16
+ip_entry:restoretext_pc: 0x7fa5cdc1e0b2
+ip_entry:restoretext_pc: 0x0005371aa
+ip_entry:restoretext_pc: 0x0005389c0
+ip_entry:restoretext_pc: 0x7fa5e6b51a30
+ip_entry:restoretext_pc: 0x7fa5cdafbe3b
+ip_entry:restoretext_pc: 0x7fa5e6b50e2b
+ip_entry:restoretext_pc: 0x0005178b0
+ip_entry:restoretext_pc: 0x7fa5cdb0a329
+ip_entry:restoretext_pc: 0x000537233
+ip_entry:restoretext_pc: 0x00041afe8
+ip_entry:restoretext_pc: 0x000475f3a
+ip_entry:restoretext_pc: 0x00041afef
+ip_entry:restoretext_pc: 0x7fa5e6b3ee1b
+ip_entry:restoretext_pc: 0x000517938
+ip_entry:restoretext_pc: 0x7fa5e6b46670
+ip_entry:restoretext_pc: 0x000424c75
+ip_entry:restoretext_pc: 0x0005a2a5e
+ip_entry:restoretext_pc: 0x0004a3d1c
+ip_entry:restoretext_pc: 0x00053728b
+ip_entry:restoretext_pc: 0x000524603
+ip_entry:restoretext_pc: 0x7fa5e6b3eeba
+ip_entry:restoretext_pc: 0x0004ca319
+ip_entry:restoretext_pc: 0x7fa5cdb90d13
+ip_entry:restoretext_pc: 0x7fa5cdb4eab5
+ip_entry:restoretext_pc: 0x7fa5e6b45b42
+ip_entry:restoretext_pc: 0x0004efcce
+ip_entry:restoretext_pc: 0x7fa5cdb65ff0
+ip_entry:restoretext_pc: 0x7fa5cdb65ffe
+ip_entry:restoretext_pc: 0x7fa5e6b54c36
+ip_entry:restoretext_pc: 0x00048f98d
+ip_entry:restoretext_pc: 0x7fa5e6b54c39
+ip_entry:restoretext_pc: 0x00046a040
+ip_entry:restoretext_pc: 0x0004fd5a0
+ip_entry:restoretext_pc: 0x00046a055
+ip_entry:restoretext_pc: 0x000465861
+ip_entry:restoretext_pc: 0x7fa5cdafcc8a
+ip_entry:restoretext_pc: 0x7fa5cdafc089
+ip_entry:restoretext_pc: 0x7fa5e6b4b041
+ip_entry:restoretext_pc: 0x0004ee56d
+ip_entry:restoretext_pc: 0x00046a0ab
+ip_entry:restoretext_pc: 0x7fa5e6b54cd1
+ip_entry:restoretext_pc: 0x000517b4c
+ip_entry:restoretext_pc: 0x7fa5cdb59469
+ip_entry:restoretext_pc: 0x0005549a0
+ip_entry:restoretext_pc: 0x00051939c
+ip_entry:restoretext_pc: 0x0005b8984
+ip_entry:restoretext_pc: 0x7fa5cdc2e07d
+ip_entry:restoretext_pc: 0x7fa5cdbd6d72
+ip_entry:restoretext_pc: 0x7fa5cdb4ecb8
+ip_entry:restoretext_pc: 0x7fa5cdb661bd
+ip_entry:restoretext_pc: 0x7fa5cdb5ad60
+ip_entry:restoretext_pc: 0x0004f22f0
+ip_entry:restoretext_pc: 0x7fa5cdb4f901
+ip_entry:restoretext_pc: 0x7fa5cdb661d6
+ip_entry:restoretext_pc: 0x0005429ec
+ip_entry:restoretext_pc: 0x00059e562
+ip_entry:restoretext_pc: 0x0005073e5
+ip_entry:restoretext_pc: 0x7fa5e6b3d965
+ip_entry:restoretext_pc: 0x00059e579
+ip_entry:restoretext_pc: 0x00059e599
+ip_entry:restoretext_pc: 0x7fa5cdbd6268
+ip_entry:restoretext_pc: 0x000537632
+ip_entry:restoretext_pc: 0x7fa5cdb22822
+ip_entry:restoretext_pc: 0x0005b8b10
+ip_entry:restoretext_pc: 0x7fa5e6b3c239
+ip_entry:restoretext_pc: 0x7fa5e6b5432a
+ip_entry:restoretext_pc: 0x7fa5cdb54e73
+ip_entry:restoretext_pc: 0x7fa5e6b4b2f7
+ip_entry:restoretext_pc: 0x7fa5e6b4cb1d
+ip_entry:restoretext_pc: 0x0005159ff
+ip_entry:restoretext_pc: 0x0005b7ff0
+ip_entry:restoretext_pc: 0x7fa5cdb180db
+ip_entry:restoretext_pc: 0x0005618e2
+ip_entry:restoretext_pc: 0x7fa5e6b513f5
+ip_entry:restoretext_pc: 0x7fa5cdbc5b5e
+ip_entry:restoretext_pc: 0x00051725e
+ip_entry:restoretext_pc: 0x7fa5e6b5441a
+ip_entry:restoretext_pc: 0x7fa5e6b5441e
+ip_entry:restoretext_pc: 0x7fa5e6b4479b
+ip_entry:restoretext_pc: 0x7fa5e6b447c5
+ip_entry:restoretext_pc: 0x000538408
+ip_entry:restoretext_pc: 0x00052273e
+ip_entry:restoretext_pc: 0x7fa5e6b3c3ad
+ip_entry:restoretext_pc: 0x000515ad2
+ip_entry:restoretext_pc: 0x000441b26
+ip_entry:restoretext_pc: 0x000538424
+ip_entry:restoretext_pc: 0x0005987aa
+ip_entry:restoretext_pc: 0x00050e2a9
+ip_entry:restoretext_pc: 0x0004c17e4
+ip_entry:restoretext_pc: 0x00047e97c
+ip_entry:restoretext_pc: 0x00053847a
+ip_entry:restoretext_pc: 0x7fa5e6b44880
+ip_entry:restoretext_pc: 0x7fa5cdb0b59a
+ip_entry:restoretext_pc: 0x000524bec
+ip_entry:restoretext_pc: 0x00051afa5
+ip_entry:restoretext_pc: 0x0004eea3e
+ip_entry:restoretext_pc: 0x0004c24b4
+ip_entry:restoretext_pc: 0x0004c24c6
+ip_entry:restoretext_pc: 0x7fa5e6b40ce0
+ip_entry:restoretext_pc: 0x000555a9e
+ip_entry:restoretext_pc: 0x7fa5e6b43d80
+ip_entry:restoretext_pc: 0x7fa5cdb02670
+ip_entry:restoretext_pc: 0x7fa5cdaff66d
+ip_entry:restoretext_pc: 0x7fa5cde99bfa
+ip_entry:restoretext_pc: 0x000523521
+ip_entry:restoretext_pc: 0x000523531
+ip_entry:restoretext_pc: 0x00055972a
+ip_entry:restoretext_pc: 0x7fa5e6b53a73
+ip_entry:restoretext_pc: 0x00052354b
+ip_entry:restoretext_pc: 0x000523559
+ip_entry:restoretext_pc: 0x00053fe70
+ip_entry:restoretext_pc: 0x7fa5cdb5a614
+ip_entry:restoretext_pc: 0x000524d7f
+ip_entry:restoretext_pc: 0x7fa5cdb5a61d
+ip_entry:restoretext_pc: 0x7fa5cdb5a62a
+ip_entry:restoretext_pc: 0x7fa5e6b4b6a7
+ip_entry:restoretext_pc: 0x7fa5cdb5a660
+ip_entry:restoretext_pc: 0x7fa5e6b3ea70
+ip_entry:restoretext_pc: 0x00059ea7f
+ip_entry:restoretext_pc: 0x7fa5cdb7f40a
+ip_entry:restoretext_pc: 0x7fa5cdb6f77b
+ip_entry:restoretext_pc: 0x000523611
+ip_entry:restoretext_pc: 0x7fa5e6b3ea8f
+ip_entry:restoretext_pc: 0x7fa5e6b462e4
+ip_entry:restoretext_pc: 0x7fa5e6b3eaa7
+ip_entry:restoretext_pc: 0x7fa5e6b4b733
+ip_entry:restoretext_pc: 0x00051fa25
+ip_entry:restoretext_pc: 0x00053ff5e
+ip_entry:restoretext_pc: 0x7fa5cdb56aea
+ip_entry:restoretext_pc: 0x000523686
+ip_entry:restoretext_pc: 0x0005b8404
+ip_entry:restoretext_pc: 0x0005b840b
+ip_entry:restoretext_pc: 0x7fa5cdb486c5
+ip_entry:restoretext_pc: 0x7fa5cdb56b54
+ip_entry:restoretext_pc: 0x7fa5cdc0e216
+ip_entry:restoretext_pc: 0x0004c278f
+ip_entry:restoretext_pc: 0x7fa5e6b427b9
+ip_entry:restoretext_pc: 0x7fa5e6b50c53
+ip_entry:restoretext_pc: 0x7fa5e6b53c70
+ip_entry:restoretext_pc: 0x7fa5e6b53c72
+ip_entry:restoretext_pc: 0x0004c27ac
+ip_entry:restoretext_pc: 0x000558d3b
+ip_entry:restoretext_pc: 0x7fa5cdb4e786
+ip_entry:restoretext_pc: 0x7fa5e6b46428
+ip_entry:restoretext_pc: 0x7fa5e6b53cb0
+ip_entry:restoretext_pc: 0x7fa5e6b46444
+ip_entry:restoretext_pc: 0x7fa5e6b4644f
+ip_entry:restoretext_pc: 0x7fa5cdb5a85b
+ip_entry:restoretext_pc: 0x000506eb4
+ip_entry:syscall: 0x7fa5cdafccd4 L64
+ip_entry:syscall: 0x7fa5cdb8b3b3 L64
+ip_entry:syscall: 0x7fa5cdb8f307 L64
+ip_entry:syscall: 0x7fa5cdb8fe65 L64
+ip_entry:syscall: 0x7fa5cdb8fe75 L64
+ip_entry:syscall: 0x7fa5cdb8fe85 L64
+ip_entry:syscall: 0x7fa5cdb8fe95 L64
+ip_entry:syscall: 0x7fa5cdbb91a3 L64
+ip_entry:syscall: 0x7fa5cdbb91f2 L64
+ip_entry:syscall: 0x7fa5cdbb9243 L64
+ip_entry:syscall: 0x7fa5cdbb961e L64
+ip_entry:syscall: 0x7fa5cdbb96be L64
+ip_entry:syscall: 0x7fa5cdbb980e L64
+ip_entry:syscall: 0x7fa5cdbb986e L64
+ip_entry:syscall: 0x7fa5cdbb9f5e L64
+ip_entry:syscall: 0x7fa5cdbbb015 L64
+ip_entry:syscall: 0x7fa5cdbbea97 L64
+ip_entry:syscall: 0x7fa5cdbbed55 L64
+ip_entry:syscall: 0x7fa5cdbbf21a L64
+ip_entry:syscall: 0x7fa5cdbc29c8 L64
+ip_entry:syscall: 0x7fa5cdbc29f5 L64
+ip_entry:syscall: 0x7fa5cdbc84ae L64
+ip_entry:syscall: 0x7fa5cde99b50 L64
+ip_entry:syscall: 0x7fa5cde99bba L64
+ip_entry:syscall: 0x7fa5cde99bdd L64
+ip_entry:syscall: 0x7fa5cde99ce1 L64
+ip_entry:syscall: 0x7fa5cdea3448 L64
+ip_entry:syscall: 0x7fa5e6b3afdc L64
+ip_entry:syscall: 0x7fa5e6b5218a L64
+ip_entry:syscall: 0x7fa5e6b53462 L64
+ip_entry:syscall: 0x7fa5e6b534d5 L64
+ip_entry:syscall: 0x7fa5e6b534f5 L64
+ip_entry:syscall: 0x7fa5e6b53535 L64
+ip_entry:syscall: 0x7fa5e6b53635 L64
+ip_entry:syscall: 0x7fa5e6b53658 L64
+ip_entry:syscall: 0x7fa5e6b53685 L64
+ip_entry:syscall: 0x7fa5e6b536a5 L64
+ip_entry:syscall: 0x7fa5e6b536e5 L64
+ip_entry:image_load: 0x7fa5e6b3b2d0
+ip_entry:image_load: 0x7fa5cde98530
+ip_entry:image_load: 0x7fa5cdbbed50
+ip_entry:image_load: 0x7fa5cd18b400
+ip_entry:image_load: 0x7fa5cd4afca0
+ip_entry:image_load: 0x7fa5cd6c7d00
+ip_entry:image_load: 0x7fa5cd8cada0
+ip_entry:image_load: 0x000574955
